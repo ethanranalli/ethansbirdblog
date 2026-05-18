@@ -6,12 +6,12 @@ Minimal white-background bird blog with a stacked archive of square image posts.
 
 ### Option 1: Open it directly
 
-Open `/mnt/d/Coding/Ethan's Bird Blog/index.html` in any web browser.
+Open `/mnt/d/Coding/Birding Website/index.html` in any web browser.
 
 ### Option 2: Run a local server
 
 ```bash
-cd "/mnt/d/Coding/Ethan's Bird Blog"
+cd "/mnt/d/Coding/Birding Website"
 python3 -m http.server 8000
 ```
 
@@ -26,19 +26,17 @@ http://localhost:8000
 - `index.html` is the archive page
 - `about.html` is the separate about page
 - `post.html` is the single-post page
-- `SandHilledCranePost.js` stores the Sand Hilled Crane post content
-- `SawWetPost.js` stores the Saw Wet Owl post content
-- `posts.js` collects the post files for the site
-- `app.js` renders the archive list
-- `post.js` renders an individual post
-- `styles.css` controls the site design
+- `posts/` stores one JavaScript file per bird post
+- `scripts/posts.js` collects the post files for the site
+- `scripts/app.js` renders the archive list
+- `scripts/post.js` renders an individual post
+- `styles/styles.css` controls the site design
 - `assets/Photos/` stores the original bird images
 - `assets/Web/` stores the optimized web images used by the live site
 
 ## Add Or Edit Posts
 
-Open `SawWetPost.js` to edit the owl post title, description, date, and images.
-Open `SandHilledCranePost.js` to edit the crane post title, description, date, and images.
+Open the matching file in `posts/` to edit a post title, description, date, and images.
 
 The main description text is inside the `body` array.
 
@@ -56,15 +54,16 @@ For each post, edit:
 
 To use your own bird photos:
 
-1. Put the image inside `assets/`
-2. Change the `image` or `images` paths in `SawWetPost.js`
+1. Put original images inside `assets/Photos/`
+2. Put web-facing images inside `assets/Web/`
+3. Change the `image` or `images` paths in the matching file in `posts/`
 
 If you add more posts later, you can create more files like:
 
-- `SandHilledCranePost.js`
-- `SawWetPost.js`
-- `CardinalPost.js`
-- `HeronPost.js`
+- `posts/SandHilledCranePost.js`
+- `posts/SawWetPost.js`
+- `posts/CardinalPost.js`
+- `posts/HeronPost.js`
 
 Example:
 
@@ -75,7 +74,7 @@ window.SAW_WET_POST = {
   date: "April 2, 2026",
   year: "2026",
   location: "Backyard Fence",
-  image: "assets/cardinal.jpg",
+  image: "assets/Web/Cardinal/IMG_0001.jpg",
   alt: "Northern cardinal perched on a wooden fence at sunrise.",
   summary: "A bright red flash landed just as the morning light came through the trees.",
   body: [

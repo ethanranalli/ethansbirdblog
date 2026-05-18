@@ -8,8 +8,10 @@ This is a simple static site with:
 
 - `index.html` for the archive page
 - `post.html` for the single-post page
-- one JavaScript file per post
-- `posts.js` as the list of all posts
+- one JavaScript file per post in `posts/`
+- `scripts/posts.js` as the list of all posts
+- shared page scripts in `scripts/`
+- site styles in `styles/`
 
 Posts are not generated from a CMS or markdown. Each post is a JavaScript object attached to `window`.
 
@@ -18,10 +20,12 @@ Posts are not generated from a CMS or markdown. Each post is a JavaScript object
 - Root project folder: `/mnt/d/Coding/Birding Website`
 - Original photos: `/mnt/d/Coding/Birding Website/assets/Photos/`
 - Web-facing post images: `/mnt/d/Coding/Birding Website/assets/Web/`
-- Existing post files live in the project root:
-  - `/mnt/d/Coding/Birding Website/SandHilledCranePost.js`
-  - `/mnt/d/Coding/Birding Website/SawWetPost.js`
-  - `/mnt/d/Coding/Birding Website/BeaverMarshTrailheadPost.js`
+- Existing post files live in `/mnt/d/Coding/Birding Website/posts/`:
+  - `/mnt/d/Coding/Birding Website/posts/SandHilledCranePost.js`
+  - `/mnt/d/Coding/Birding Website/posts/SawWetPost.js`
+  - `/mnt/d/Coding/Birding Website/posts/BeaverMarshTrailheadPost.js`
+  - `/mnt/d/Coding/Birding Website/posts/ProthonotaryWarblerPost.js`
+- GitHub commit and push workflow notes live in `/mnt/d/Coding/Birding Website/docs/github/AGENTS.md`
 
 ## How New Posts Work
 
@@ -30,9 +34,9 @@ For every new post:
 1. Find the source image folder in `assets/Photos/`.
 2. Create a matching folder in `assets/Web/` if it does not already exist.
 3. Copy the photos that should appear in the post into the matching `assets/Web/` folder.
-4. Create a new root-level post file named like `CardinalPost.js` or `LakeEriePost.js`.
+4. Create a new post file in `posts/` named like `CardinalPost.js` or `LakeEriePost.js`.
 5. Add the new script tag to both `index.html` and `post.html`.
-6. Add the post object to `window.BIRD_POSTS` in `posts.js`.
+6. Add the post object to `window.BIRD_POSTS` in `scripts/posts.js`.
 
 ## Required File Updates
 
@@ -40,7 +44,7 @@ When adding a post, always check these files:
 
 - `/mnt/d/Coding/Birding Website/index.html`
 - `/mnt/d/Coding/Birding Website/post.html`
-- `/mnt/d/Coding/Birding Website/posts.js`
+- `/mnt/d/Coding/Birding Website/scripts/posts.js`
 
 If the new post file is not loaded in both HTML files, the archive or single-post page will not work correctly.
 
@@ -108,11 +112,11 @@ window.EXAMPLE_POST = {
 
 ## Quick Checklist
 
-- New post file created in project root
+- New post file created in `posts/`
 - Images copied into `assets/Web/...`
 - Script added to `index.html`
 - Script added to `post.html`
-- Post added to `posts.js`
+- Post added to `scripts/posts.js`
 - `slug`, `title`, `date`, `year`, `location`, `alt`, `summary`, and `body` filled in
 - All desired images included in `images`
 
@@ -124,9 +128,9 @@ Do this:
 
 1. Read `/mnt/d/Coding/Birding Website/assets/Photos/Beaver Marsh Trailhead/`
 2. Copy the requested photos into `/mnt/d/Coding/Birding Website/assets/Web/Beaver Marsh Trailhead/`
-3. Create `/mnt/d/Coding/Birding Website/BeaverMarshTrailheadPost.js`
+3. Create `/mnt/d/Coding/Birding Website/posts/BeaverMarshTrailheadPost.js`
 4. Add the script to both HTML files
-5. Add the post to `/mnt/d/Coding/Birding Website/posts.js`
+5. Add the post to `/mnt/d/Coding/Birding Website/scripts/posts.js`
 6. Verify the image paths and ordering
 
 ## Important Reminder
@@ -135,4 +139,4 @@ Do not only create the post file. A new post is complete only when:
 
 - the images exist in `assets/Web/`
 - the post file is loaded by both HTML pages
-- the post is included in `posts.js`
+- the post is included in `scripts/posts.js`
