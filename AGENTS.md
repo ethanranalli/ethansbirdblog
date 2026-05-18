@@ -12,6 +12,7 @@ This is a simple static site with:
 - `scripts/posts.js` as the list of all posts
 - shared page scripts in `scripts/`
 - site styles in `styles/`
+- Google Analytics 4 tracking on every HTML page
 
 Posts are not generated from a CMS or markdown. Each post is a JavaScript object attached to `window`.
 
@@ -26,6 +27,33 @@ Posts are not generated from a CMS or markdown. Each post is a JavaScript object
   - `/mnt/d/Coding/Birding Website/posts/BeaverMarshTrailheadPost.js`
   - `/mnt/d/Coding/Birding Website/posts/ProthonotaryWarblerPost.js`
 - GitHub commit and push workflow notes live in `/mnt/d/Coding/Birding Website/docs/github/AGENTS.md`
+
+## Analytics Tracking
+
+Every HTML page in this site must include the GA4 Google tag immediately after the opening `<head>` tag so all visits and post views are tracked.
+
+Current GA4 measurement ID: `G-C0PHWVSHPL`
+
+Use this exact snippet on any new HTML page, and keep it in existing pages when editing:
+
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0PHWVSHPL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C0PHWVSHPL');
+</script>
+```
+
+Pages that should have this tag include:
+
+- `/mnt/d/Coding/Birding Website/index.html`
+- `/mnt/d/Coding/Birding Website/post.html`
+- `/mnt/d/Coding/Birding Website/about.html`
+- any future `.html` page added to the site
 
 ## How New Posts Work
 
