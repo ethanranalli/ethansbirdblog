@@ -14,6 +14,7 @@ if (!post) {
   `;
 } else {
   document.title = `${post.title} | Ethan's Bird Blog`;
+  window.BIRD_CURRENT_POST = post;
   const images = getPostImages(post);
 
   postDetail.innerHTML = `
